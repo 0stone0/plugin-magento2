@@ -79,11 +79,7 @@ class OrderData extends AbstractHelper
 
     public function getName($order)
     {
-        if ($order->getCustomerIsGuest() == 1) {
-            return $order->getBillingAddress()->getFirstName() . ' ' . $order->getBillingAddress()->getLastName();
-        } else {
-            return $order->getCustomerName();
-        }
+        return $order->getBillingAddress()->getFirstName() ?? 'Anoniem';
     }
 
     public function getEmail($order)
